@@ -56,7 +56,6 @@ let arr_upper = [
   "Z",
 ];
 let arr_symb = ["!", "@", "#", "$", "%", "?", "-", "+", "=", "~"];
-// let arr = " ";
 const getPasswordConfig = function () {
   const config = {
     length: null,
@@ -66,17 +65,13 @@ const getPasswordConfig = function () {
     isSpecial: null,
   };
 
-  // let isQuestionOne = false;
-  // while (true)
   while (true) {
-    // while (!isQuestionOne)
     var promptLength = window.prompt(
       "Choose the length of the password,a length must be at least 8 characters and no more than 128 characters"
     );
     if (Number(promptLength) >= 8 && Number(promptLength) <= 128) {
       config.length = promptLength;
       break;
-      // isQuestionOne = true;
     } else {
       if (promptLength === "") {
         window.alert("Chouse a length of password");
@@ -87,8 +82,6 @@ const getPasswordConfig = function () {
       }
     }
   }
-  // let isQuestionTwo = false;
-  // while (!isQuestionTwo)
   while (true) {
     let isNumbers = window.confirm(
       "Do you want your password to have numbers?"
@@ -108,21 +101,17 @@ const getPasswordConfig = function () {
       isLower === true ||
       isSpecial === true
     ) {
-      // isQuestionTwo = true;
       config.isLower = isLower;
       config.isUpper = isUpper;
       config.isNumbers = isNumbers;
       config.isSpecial = isSpecial;
       break;
     } else {
-      window.alert("Ви не вели значення");
+      window.alert("You must select at least one character type");
     }
   }
   return config;
 };
-// const compareRandom = function () {
-//   return Math.random() - 0.5;
-// };
 
 const randomInteger = function (min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
@@ -143,8 +132,6 @@ function generatePassword(config) {
     arr = arr.concat(arr_symb);
   }
 
-  // arr.sort(compareRandom);
-
   let password = "";
 
   for (let i = 0; i < config.length; i++) {
@@ -153,8 +140,6 @@ function generatePassword(config) {
 
   return password;
 }
-
-// Write password to the #password input
 
 function writePassword() {
   const config = getPasswordConfig();
